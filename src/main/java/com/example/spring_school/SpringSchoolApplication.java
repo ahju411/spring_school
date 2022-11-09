@@ -10,5 +10,6 @@ public class SpringSchoolApplication {
 		SpringApplication.run(SpringSchoolApplication.class, args);
 	}
 	//test
+	//abc
 
 }
