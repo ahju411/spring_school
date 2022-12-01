@@ -1,23 +1,17 @@
-package com.example.spring_school.entity;
+package com.example.spring_school.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
-
 @Getter
 @Setter
 @ToString
-@Entity
-@Table
-public class pLanguage {
+public class PLanguageDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long mId;
+    private long pId;
 
-    private long key;
+    private long Id;
 
     private String pLnaguage;
 
