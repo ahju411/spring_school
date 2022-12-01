@@ -4,6 +4,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
+
 @org.springframework.stereotype.Controller
 @RequestMapping
 public class Controller {
@@ -13,5 +15,12 @@ public class Controller {
 
         return "index";
     }
+    @GetMapping(value = "/test")
+    public String ControllerTest1(Model model){
+
+        return "test";
+    }
+
+
 
 }

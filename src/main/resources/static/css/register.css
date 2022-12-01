@@ -69,14 +69,14 @@ form .button input:hover{
     background: linear-gradient(-135deg, #71b7e6,#E2F2FC);
 }
 
-form .user-details .input-box{
-    margin: 20px 0 12px 0;
-    width: calc(100% / 2 -20px);
-}
-.user-details .input-box .details{
-    display: block;
-    margin-bottom: 5px;
-}
+/*form .user-details .input-box{*/
+/*    margin: 20px 0 12px 0;*/
+/*    width: calc(100% / 2 -20px);*/
+/*}*/
+/*.user-details .input-box .details{*/
+/*    display: block;*/
+/*    margin-bottom: 5px;*/
+/*}*/
 .user-details .input-box input{
     height:45px;
     width: 100%;
