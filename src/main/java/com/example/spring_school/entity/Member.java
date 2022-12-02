@@ -7,6 +7,8 @@ import lombok.ToString;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,13 +17,13 @@ import javax.persistence.*;
 @Table
 public class Member {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     //사용자 Id
-    @Column(nullable = false)
-    private String MemberId;
+    @Id
+    @Column(nullable = false, name = "id", unique = true)
+    private String id;
+
+    @OneToMany
+    private List<Project> projects = new ArrayList<>();
 
     //사용자 이름
     @Column(nullable = false)
@@ -42,9 +44,12 @@ public class Member {
     //사용자 깃허브 링크
     private String link;
 
-    public static Member createMember(MemberDto memberDto, PasswordEncoder passwordEncoder){
+    //사용자 사용 언어
+    private String language;
+
+    public static Member CreateMember(MemberDto memberDto, PasswordEncoder passwordEncoder){
         Member member = new Member();
-        member.setMemberId(memberDto.getMemberId());
+        member.setId(memberDto.getMemberId());
         String password = passwordEncoder.encode(memberDto.getPassword());
         member.setPassword(password);
         member.setImage(memberDto.getImage());
@@ -53,6 +58,16 @@ public class Member {
         member.setItd(memberDto.getItd());
 
         return member;
+    }
+
+    public void UpdateMember(MemberDto memberDto, PasswordEncoder passwordEncoder){
+        String password = passwordEncoder.encode(memberDto.getPassword());
+        this.password = password;
+        this.career = memberDto.getCareer();
+        this.itd = memberDto.getItd();
+        this.link = memberDto.getLink();
+        this.image = memberDto.getImage();
+//        this.language = memberDto.get
     }
 
 }

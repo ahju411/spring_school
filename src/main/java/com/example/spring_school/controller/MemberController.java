@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping
 @RequiredArgsConstructor
@@ -20,12 +22,18 @@ public class MemberController {
     private final PasswordEncoder passwordEncoder;
     private final MemberService memberService;
 
-    @GetMapping(value = "")
-    public String con(Model model){
-        return "";
+    @GetMapping(value = "/persist")
+    public String persist(Model model){
+        return "/persist";
     }
 
- /*   @PostMapping(value = "")
+    @GetMapping(value = "/login")
+    public String con(Model model){
+        model.addAttribute("memberDto", new MemberDto());
+        return "/login";
+    }
+
+    @PostMapping(value = "/login")
     public String loginController(@Valid MemberDto memberDto, BindingResult bindingResult, Model model){
 
         if(bindingResult.hasErrors()){
@@ -33,15 +41,15 @@ public class MemberController {
         }
 
         try {
-            Member member = Member.createMember(memberDto, passwordEncoder);
+            Member member = Member.CreateMember(memberDto, passwordEncoder);
             memberService.saveMember(member);
         }catch (IllegalStateException e){
             model.addAttribute("errorMessage", e.getMessage());
             return "redirect:/";
         }
 
-        return "redirect:/";
+        return "/login";
 
     }
-*/
+
 }

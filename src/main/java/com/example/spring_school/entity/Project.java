@@ -8,6 +8,7 @@ import lombok.ToString;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,8 +19,10 @@ public class Project {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long piId;
+    private Long pj_id;
 
+    @ManyToOne(targetEntity = Member.class)
+    @JoinColumn(name = "id")
     private String id;
 
     @Column(nullable = false)
@@ -30,6 +33,8 @@ public class Project {
     private String pjLongInfo;
 
     private String pjLink;
+
+    private String language;
 
     public static Project createProject(ProjectDto projectDto, PasswordEncoder passwordEncoder){
         Project project = new Project();
