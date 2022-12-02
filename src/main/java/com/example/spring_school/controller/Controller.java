@@ -12,8 +12,8 @@ public class Controller {
 
     @GetMapping(value = "/")
     public String ControllerTest(Model model){
-
-        return "index";
+                model.addAttribute()
+        return "yoostudy_home";
     }
     @GetMapping(value = "/test")
     public String ControllerTest1(Model model){
