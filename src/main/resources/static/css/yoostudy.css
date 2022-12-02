@@ -12,7 +12,9 @@
 
 .container {
     max-width: 2000px;
-    margin: 0 auto;
+    text-align: center;
+    align-content: center;
+    align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
