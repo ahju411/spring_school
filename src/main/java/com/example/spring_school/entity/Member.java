@@ -18,14 +18,18 @@ public class Member {
 
     //사용자 Id
     @Id
-    @Column(nullable = false, name = "id")
-    private String id;
+//    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+//    @Column(nullable = false, unique = true)
+    private String memberId;
 
     //사용자 이름
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String password;
 
     //프로필 사진 경로\
@@ -43,5 +47,28 @@ public class Member {
     //사용자 사용 언어
     private String language;
 
+    public static Member CreateMember(MemberDto memberDto, PasswordEncoder passwordEncoder){
+        Member member = new Member();
+        member.setMemberId(memberDto.getMemberId());
+        String password = passwordEncoder.encode(memberDto.getPassword());
+        member.setPassword(password);
+        member.setName(memberDto.getName());
+        member.setImage(memberDto.getImage());
+        member.setCareer(memberDto.getCareer());
+        member.setItd(memberDto.getItd());
+        member.setItd(memberDto.getItd());
+
+        return member;
+    }
+
+
+    public void updateMember(MemberDto memberDto){
+        this.name = memberDto.getName();
+        this.image = memberDto.getImage();
+        this.career = memberDto.getCareer();
+        this.itd = memberDto.getItd();
+        this.link = memberDto.getLink();
+//        this.language = memberDto.getl
+    }
 
 }

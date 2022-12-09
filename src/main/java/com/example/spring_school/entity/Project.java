@@ -1,14 +1,11 @@
 package com.example.spring_school.entity;
 
-import com.example.spring_school.dto.MemberDto;
 import com.example.spring_school.dto.ProjectDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -36,12 +33,13 @@ public class Project {
 
     private String language;
 
-    public static Project createProject(ProjectDto projectDto, PasswordEncoder passwordEncoder){
+    public static Project createProject(ProjectDto projectDto){
         Project project = new Project();
         project.setPjName(projectDto.getPjName());
         project.setPjShortInfo(projectDto.getPjShortInfo());
         project.setPjLongInfo(projectDto.getPjLongInfo());
         project.setPjLink(projectDto.getPjLink());
+//        project.setLanguage(projectDto.ge);
 
         return project;
     }

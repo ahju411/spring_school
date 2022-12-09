@@ -9,8 +9,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -26,28 +26,35 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-//    public void ValidateDuplicateMember(Member member){
-//        Member findMember = memberRepository.findById(member.getId());
-//        if(findMember != null){
-//            throw new IllegalStateException("아이디가 이미 존재합니다.");
-//        }
-//    }
+/*    public void ValidateDuplicateMember(Member member){
+        Member findMember = memberRepository.findById(member.getId());
+        if(findMember != null){
+            throw new IllegalStateException("아이디가 이미 존재합니다.");
+        }
+    }*/
 
-//    //맴버 정보 수정
-//    public String updateMember(MemberDto memberDto) throws Exception{
-//        Member member = memberRepository.findById(memberDto.getMemberId());
-//        member.UpdateMember(memberDto, passwordEncoder);
-//
-//        return member.getId();
-//    }
+    //맴버 정보 수정
+    @Transactional
+    public Member getMemberById(String memberId) throws Exception{
+        Member member = memberRepository.findById(memberId).orElseThrow(EntityNotFoundException::new);
 
-    //language로 받아오기
+        return member;
+    }
+
+/*    public String updateMember(MemberDto memberDto){
+        Member member = memberRepository.findById(memberDto.getMemberId()).orElseThrow(EntityNotFoundException::new);
+        member.updateMember(memberDto);
+
+        return member.getId();
+    }*/
+
+/*    //language로 받아오기
     public Member findByContainLanguage(String language){
 
         memberRepository.findByLanguage("%"+language+"%");
 
 
         return new Member();
-    }
+    }*/
 
 }

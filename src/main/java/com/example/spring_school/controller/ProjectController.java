@@ -1,5 +1,6 @@
 package com.example.spring_school.controller;
 
+import com.example.spring_school.dto.ProjectDto;
 import com.example.spring_school.entity.Project;
 import com.example.spring_school.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +8,12 @@ import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 //@Controller
@@ -26,7 +30,7 @@ public class ProjectController {
         return projects;
     }
 
-    @GetMapping(value = "projectList1")
+    @GetMapping(value = "getMyProject")
     public List<Project> MyProjectGetController(Model model){
 
         List<Project> projects = projectRepository.findById("");
@@ -34,14 +38,20 @@ public class ProjectController {
         return projects;
     }
 
-    @GetMapping(value = "projectList2")
-    public String saveProject(){
+    @GetMapping(value = "saveProjectList")
+    public HashMap<String, String> saveProject(@RequestParam Map<String, Object> getiden){
 
-        Project project = new Project();
+        getiden.get("");
+
+        ProjectDto projectDto = new ProjectDto();
+
+        Project project = Project.createProject(projectDto);
 
         projectRepository.save(project);
 
-        return "/";
+        HashMap<String,String> id = new HashMap<String,String>();
+        id.put("test","test");
+        return id;
     }
 
     @GetMapping(value = "projectList3")
