@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>회원가입 화면 샘플 - Bootstrap</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../static/js/input.js"></script>
+    <script src="../static/js/check.js"></script>
 
     <style>
         /*body {*/
@@ -46,14 +51,12 @@
     <div class="input-form-backgroud row">
         <div class="input-form col-md-12 mx-auto">
             <h4 class="mb-3">회원가입</h4>
-            <form class="validation-form" novalidate>
+            <form class="validation-form"  novalidate>
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="id">아이디</label>
-                        <input type="text" class="form-control" id="id" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            아이디를 입력해주세요.
-                        </div>
+                        <input type="text" class="form-control" id="id" placeholder="" required>
+                        <button type="button" class="btn btn-secondary" style="margin-top: 10px" onclick="check_id()">중복체크</button>
 
                     </div>
 
@@ -64,10 +67,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="nickname">닉네임</label>
-                        <input type="text" class="form-control" id="nickname" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            닉네임을 입력해주세요.
-                        </div>
+                        <input type="text" class="form-control" id="nickname" placeholder="" required>
 
                 </div>
 
@@ -86,11 +86,28 @@
 
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nickname" >자기소개</label>
+                        <input type="text" class="form-control" id="comment" placeholder="" required>
+
+                    </div>
+                </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nickname">관련링크</label>
+                            <input type="text" class="form-control" id="link" placeholder="" required>
+                        </div>
+                    </div>
 
                 <hr class="mb-4">
                 <div class="mb-4"></div>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">가입 완료</button>
+
             </form>
+            <button class="btn btn-primary btn-lg btn-block" onclick="input_memberdb()">가입 완료</button>
+
+
         </div>
     </div>
     <footer class="my-3 text-center text-small">
