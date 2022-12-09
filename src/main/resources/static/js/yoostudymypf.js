@@ -27,9 +27,9 @@ function createProject() {
         if (i == 0) {
             projecthtml += '<div class="carousel-item active" >\n' +
                 '\n' +
-                '                    <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>\n' +
+                '                    <svg class="bd-placeholder-img " width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>\n' +
                 '\n' +
-                '                    <div class="container">\n' +
+                '                    <div class="container" >\n' +
                 '                        <div class="carousel-caption text-start">\n' +
                 '                            <h1>맛집 어플</h1>\n' +
                 '                            <p>사용 언어 : JAVA</p>\n' +

@@ -122,6 +122,8 @@
             user-select: none;
         }
 
+
+
         @media (min-width: 768px) {
             .bd-placeholder-img-lg {
                 font-size: 3.5rem;
@@ -164,6 +166,28 @@
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
+
+        /* 선 스타일*/
+        .hr-sect {
+            display: flex;
+            flex-basis: 100%;
+            align-items: center;
+            color: rgba(0, 0, 0, 0.35);
+            font-size: 25px;
+            margin: 8px 250px;
+        }
+        .hr-sect::before,
+        .hr-sect::after {
+            content: "";
+            flex-grow: 1;
+            background: rgba(0, 0, 0, 0.35);
+            height: 1px;
+            font-size: 0px;
+            line-height: 0px;
+
+
+        /*   선 스타일 ▲ */
+        }
     </style>
 
 
@@ -182,59 +206,93 @@
 
 <main>
 
-    <div id="header"></div>
+<!--    <div id="header"></div>-->
 
-    <div class="py-5 text-center  row">
-        <div class="col" style="align-items: center" >
+<!--    <div class="py-5 text-center  row">-->
+<!--        <div class="col" style="align-items: center" >-->
+<!--            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>-->
+
+<!--            <h1 class="fw-normal" id="test-text">이혜성</h1>-->
+<!--            <h5>안녕하세요 코딩의 신입니다.</h5>-->
+
+<!--        </div>-->
+
+
+<!--        <div class="row" style="padding-top: 50px">-->
+
+
+<!--        <div class="col"  >-->
+<!--            <h2 class="fw-normal" id="test-text2">language</h2>-->
+<!--            <p>Java<br>-->
+<!--            C<BR>-->
+<!--            C++<BR>-->
+<!--            </p>-->
+
+<!--        </div>-->
+
+<!--        <div class="col"  >-->
+<!--            <h2 class="fw-normal" id="test-text2">Carrer</h2>-->
+<!--            <p> 22.09~35.09 : 파이센셜 아이큐<br>-->
+<!--                22.09~35.09 : 파이센셜 아이큐<br>-->
+<!--                22.09~35.09 : 파이센셜 아이큐<br>-->
+<!--                22.09~35.09 : 파이센셜 아이큐<br>-->
+<!--            </p>-->
+<!--        </div>-->
+
+<!--        <div class="col"  >-->
+<!--            <h2 class="fw-normal" id="test-text2">CERTIFICATE</h2>-->
+<!--            <p> 22.06 : 정보처리산업기사<br>-->
+<!--                22.06 : 정보처리산업기사<br>-->
+<!--                22.06 : 정보처리산업기사<br>-->
+<!--                22.06 : 정보처리산업기사<br>-->
+<!--            </p>-->
+
+<!--        </div>-->
+<!--        <div class="col"  >-->
+<!--            <h2 class="fw-normal" id="test-text2">AWARD</h2>-->
+<!--            <p> 22.11: 2022롤드컵 우승<br>-->
+<!--                22.11: 2022롤드컵 우승<br>-->
+<!--                22.11: 2022롤드컵 우승<br>-->
+<!--                22.11: 2022롤드컵 우승<br>-->
+<!--            </p>-->
+
+<!--        </div>-->
+
+<!--        </div>-->
+
+    <div id="header"></div>
+    <h3 style="padding-left: 30px; padding-top: 10px">PROFILE</h3>
+    <hr style="border: double 10px gray;">
+    <div class="row"   style="padding-top: 70px">
+        <div class="col text-center " style="align-items: center; padding-top: 150px" >
             <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-            <h1 class="fw-normal" id="test-text">이혜성</h1>
-            <h5>안녕하세요 코딩의 신입니다.</h5>
+            <h1 class="fw-normal py-3" id="test-text">INHATC</h1>
+            <h5>안녕하세요. INHATC입니다. </h5>
+        </div>
+
+        <div class="col py-5">
+
+            <div class="hr-sect">CARRER</div>
+            <p style="text-align: center">22.09~: 파이센셜 아이큐</p>
+            <p style="text-align: center">22.09~: 파이센셜 아이큐</p>
+            <p style="text-align: center">22.09~: 파이센셜 아이큐</p>
+            <div class="hr-sect">LANGUAGE</div>
+            <p style="text-align: center">C , C++</p>
+            <div class="hr-sect">certificate</div>
+            <p style="text-align: center">22.06 : 정보처리산업기사</p>
+            <p style="text-align: center">22.06 : 정보처리산업기사</p>
+            <div class="hr-sect">AWARD</div>
+            <p style="text-align: center">22.09: 롤드컵 우승</p>
+            <p style="text-align: center">22.09: 롤드컵 우승</p>
+
+
 
         </div>
 
 
-        <div class="row" style="padding-top: 50px">
 
 
-        <div class="col"  >
-            <h2 class="fw-normal" id="test-text2">language</h2>
-            <p>Java<br>
-            C<BR>
-            C++<BR>
-            </p>
-
-        </div>
-
-        <div class="col"  >
-            <h2 class="fw-normal" id="test-text2">Carrer</h2>
-            <p> 22.09~35.09 : 파이센셜 아이큐<br>
-                22.09~35.09 : 파이센셜 아이큐<br>
-                22.09~35.09 : 파이센셜 아이큐<br>
-                22.09~35.09 : 파이센셜 아이큐<br>
-            </p>
-        </div>
-
-        <div class="col"  >
-            <h2 class="fw-normal" id="test-text2">CERTIFICATE</h2>
-            <p> 22.06 : 정보처리산업기사<br>
-                22.06 : 정보처리산업기사<br>
-                22.06 : 정보처리산업기사<br>
-                22.06 : 정보처리산업기사<br>
-            </p>
-
-        </div>
-        <div class="col"  >
-            <h2 class="fw-normal" id="test-text2">AWARD</h2>
-            <p> 22.11: 2022롤드컵 우승<br>
-                22.11: 2022롤드컵 우승<br>
-                22.11: 2022롤드컵 우승<br>
-                22.11: 2022롤드컵 우승<br>
-            </p>
-
-        </div>
-
-        </div>
 
 
 
@@ -242,6 +300,12 @@
     </div>
 
 
+
+<!--    끝-->
+
+
+    <hr style="border: double 10px gray;">
+    <h3 style="padding-left: 30px;padding-bottom: 10px">MY PORTFOLIO</h3>
 
 
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -280,6 +344,8 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
+
 
 
     <!-- Marketing messaging and featurettes
