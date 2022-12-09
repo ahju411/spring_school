@@ -41,4 +41,13 @@ public class MemberService {
 //        return member.getId();
 //    }
 
+    //language로 받아오기
+    public Member findByContainLanguage(String language){
+
+        memberRepository.findByLanguage("%"+language+"%");
+
+
+        return new Member();
+    }
+
 }

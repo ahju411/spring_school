@@ -1,55 +1,60 @@
 package com.example.spring_school.controller;
 
-import com.example.spring_school.dto.MemberDto;
 import com.example.spring_school.entity.Member;
-import com.example.spring_school.service.MemberService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
+import com.example.spring_school.repository.MemberRepository;
+import com.google.gson.Gson;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import java.util.List;
 
-@Controller
-@RequestMapping
-@RequiredArgsConstructor
+@org.springframework.stereotype.Controller
+
+//@RequestMapping
+//@RequiredArgsConstructor
+@RestController
 public class MemberController {
 
-    private final PasswordEncoder passwordEncoder;
-    private final MemberService memberService;
+    @Autowired
+    MemberRepository memberRepository;
 
-    @GetMapping(value = "/persist")
-    public String persist(Model model){
-        return "/persist";
+//    @GetMapping(value = "/123")
+//    public List<Member> ControllerTest(@RequestBody Map<String, String>language){
+//
+//        List<Member> member = memberRepository.findByLanguage(language.get("language"));
+//
+//        return member;
+//    }
+
+    @GetMapping(value = "/list1")
+    public String getMemberDataTest(Model model){
+//        List<Member> member = memberRepository.findAll();
+        List<Member> member = memberRepository.findByLanguage("java");
+
+        String json = new Gson().toJson(member);
+        model.addAttribute("data", json);
+
+        return json;
     }
 
-    @GetMapping(value = "/login")
-    public String con(Model model){
-        model.addAttribute("memberDto", new MemberDto());
-        return "/login";
+    @CrossOrigin
+    @GetMapping(value = "/list")
+    public List<Member> getMember(){
+        List<Member> member = memberRepository.findAll();
+        return member;
     }
 
-    @PostMapping(value = "/login")
-    public String loginController(@Valid MemberDto memberDto, BindingResult bindingResult, Model model){
+    @GetMapping(value = "/list2")
+    public String saveMember(Model model){
 
-        if(bindingResult.hasErrors()){
-            return "redirect:/";
-        }
+        Member member = new Member();
 
-        try {
-            Member member = Member.CreateMember(memberDto, passwordEncoder);
-            memberService.saveMember(member);
-        }catch (IllegalStateException e){
-            model.addAttribute("errorMessage", e.getMessage());
-            return "redirect:/";
-        }
+        memberRepository.save(member);
 
-        return "/login";
-
+        return "/";
     }
+
+
 
 }

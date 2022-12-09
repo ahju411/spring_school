@@ -12,18 +12,14 @@ import java.util.List;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table
 public class Member {
 
     //사용자 Id
     @Id
-    @Column(nullable = false, name = "id", unique = true)
+    @Column(nullable = false, name = "id")
     private String id;
-
-    @OneToMany
-    private List<Project> projects = new ArrayList<>();
 
     //사용자 이름
     @Column(nullable = false)
@@ -32,7 +28,7 @@ public class Member {
     @Column(nullable = false)
     private String password;
 
-    //프로필 사진 경로
+    //프로필 사진 경로\
     private String image;
 
     //사용자 연혁
@@ -47,27 +43,5 @@ public class Member {
     //사용자 사용 언어
     private String language;
 
-    public static Member CreateMember(MemberDto memberDto, PasswordEncoder passwordEncoder){
-        Member member = new Member();
-        member.setId(memberDto.getMemberId());
-        String password = passwordEncoder.encode(memberDto.getPassword());
-        member.setPassword(password);
-        member.setImage(memberDto.getImage());
-        member.setCareer(memberDto.getCareer());
-        member.setItd(memberDto.getItd());
-        member.setItd(memberDto.getItd());
-
-        return member;
-    }
-
-    public void UpdateMember(MemberDto memberDto, PasswordEncoder passwordEncoder){
-        String password = passwordEncoder.encode(memberDto.getPassword());
-        this.password = password;
-        this.career = memberDto.getCareer();
-        this.itd = memberDto.getItd();
-        this.link = memberDto.getLink();
-        this.image = memberDto.getImage();
-//        this.language = memberDto.get
-    }
 
 }
