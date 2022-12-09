@@ -25,7 +25,7 @@ function createProject() {
 
     for(let i=0 ; i<length ; i++) {
         if (i == 0) {
-            projecthtml += '<div class="carousel-item active" >\n' +
+            projecthtml += '<div class="carousel-item active" style="height: 100vh">\n' +
                 '\n' +
                 '                    <svg class="bd-placeholder-img " width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>\n' +
                 '\n' +
@@ -40,7 +40,7 @@ function createProject() {
                 '\n' +
                 '                </div>'
         } else if (i >= 1) {
-            projecthtml += '<div class="carousel-item">\n' +
+            projecthtml += '<div class="carousel-item" style="height: 100vh">\n' +
                 '                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>\n' +
                 '\n' +
                 '                <div class="container">\n' +

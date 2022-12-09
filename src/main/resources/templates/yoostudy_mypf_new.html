@@ -34,6 +34,13 @@
       $("#header").load("header.html")
     })
   </script>
+<!--  iframe 체인지-->
+  <script>
+    function changeIframe(url)
+    {
+      document.getElementById("iframetest").src = url;
+    }
+  </script>
 
 
 
@@ -69,12 +76,15 @@
   <nav class="small" id="toc">
     <ul class="list-unstyled">
       <li class="my-2">
-        <button class="btn d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse">PROFILE</button>
+        <button class="btn d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#contents-collapse" aria-controls="contents-collapse"
+        onclick="changeIframe('yoostudy_profile.html')">PROFILE</button>
         <ul class="list-unstyled ps-3 collapse" id="contents-collapse">
         </ul>
       </li>
       <li class="my-2">
-        <button class="btn d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#components-collapse" aria-controls="components-collapse">PORTFOLIO</button>
+        <button class="btn d-inline-flex align-items-center collapsed" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#components-collapse"
+                aria-controls="components-collapse"
+                onclick="changeIframe('yoostudy_portfolio.html')">PORTFOLIO</button>
         <ul class="list-unstyled ps-3 collapse" id="components-collapse">
         </ul>
       </li>
@@ -83,12 +93,11 @@
 </aside>
 
 
-  <iframe src="yoostudy_profile.html" title="내용" style="width: 200vh;height: 85vh;"></iframe>
+  <iframe id="iframetest" src="yoostudy_profile.html" title="내용" style="width: 200vh;height: 85vh;"></iframe>
 <!--  <iframe src="yoostudy_portfolio.html" title="내용" style="width: 200vh;height: 92vh;"></iframe>-->
 
 
 </main>
-
 
 
 
