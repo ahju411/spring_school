@@ -1,0 +1,259 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, 그리고 Bootstrap 기여자들">
+    <meta name="generator" content="Hugo 0.104.2">
+    <meta name="theme-color" content="#712cf9">
+
+    <title>Carousel Template · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.kr/docs/5.2/examples/carousel/">
+
+
+
+
+
+    <link href="/docs/5.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+
+    <link rel="mask-icon" href="/docs/5.2/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+    <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../static/css/yoostudy.css">
+
+    <script src="../static/js/portfolioedit.js"></script>
+    <style>
+        /* GLOBAL STYLES
+-------------------------------------------------- */
+        /* Padding below the footer and lighter body text */
+
+        body {
+
+            padding-bottom: 3rem;
+            color: #5a5a5a;
+        }
+
+
+        /* CUSTOMIZE THE CAROUSEL
+        -------------------------------------------------- */
+
+        /* Carousel base class */
+        .carousel {
+            margin-bottom: 4rem;
+        }
+        /* Since positioning the image, we need to help out the caption */
+        .carousel-caption {
+            bottom: 3rem;
+            z-index: 10;
+        }
+
+        /* Declare heights because of positioning of img element */
+        .carousel-item {
+            height: 32rem;
+        }
+
+
+        /* MARKETING CONTENT
+        -------------------------------------------------- */
+
+        /* Center align the text within the three columns below the carousel */
+        .marketing .col-lg-4 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        /* rtl:begin:ignore */
+        .marketing .col-lg-4 p {
+            margin-right: .75rem;
+            margin-left: .75rem;
+        }
+        /* rtl:end:ignore */
+
+
+        /* Featurettes
+        ------------------------- */
+
+        .featurette-divider {
+            margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+        }
+
+        /* Thin out the marketing headings */
+        /* rtl:begin:remove */
+        .featurette-heading {
+            letter-spacing: -.05rem;
+        }
+
+        /* rtl:end:remove */
+
+        /* RESPONSIVE CSS
+        -------------------------------------------------- */
+
+        @media (min-width: 40em) {
+            /* Bump up size of carousel content */
+            .carousel-caption p {
+                margin-bottom: 1.25rem;
+                font-size: 1.25rem;
+                line-height: 1.4;
+            }
+
+            .featurette-heading {
+                font-size: 50px;
+            }
+        }
+
+        @media (min-width: 62em) {
+            .featurette-heading {
+                margin-top: 7rem;
+            }
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+</head>
+<body>
+
+<script>
+    $(function(){
+        $("#header").load("header.html")
+    })
+</script>
+
+
+
+<main>
+
+    <div id="header"></div>
+
+    <h3 style="padding-left: 30px; padding-top: 15px;color: black">MY PORTFOLIO</h3>
+    <hr style="border: double 10px gray;">
+    <div class="row">
+<!--        -->
+        <div style="margin-left: 100px" >
+            <div style="">
+                <div class="input-group input-group-sm mb-3 " style="width: 500px;margin-top: 30px">
+                    <span class="input-group-text" >프로젝트 이름</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
+                </div>
+                <div class="input-group input-group-sm mb-3 " style="width: 500px;margin-top: 30px">
+                    <span class="input-group-text" >간단 설명</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
+                </div>
+                <div class="input-group input-group-sm mb-3 " style="width: 300px;margin-top: 30px">
+                    <span class="input-group-text" >LANGUAGE</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
+                </div>
+
+                <div class="input-group input-group-sm mb-3 " style="width: 300px;margin-top: 30px">
+                    <span class="input-group-text" >SKILLS</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
+                </div>
+                <div class="input-group input-group-sm mb-3 " style="width: 1000px;height:300px;margin-top: 30px">
+                    <span class="input-group-text" >자세한 설명</span>
+                    <textarea type="text"  cols="40" rows="5" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" ></textarea>
+                </div>
+
+                <div class="input-group input-group-sm mb-3 " style="width: 10px;margin-top: 30px">
+                    <div>
+                        <span class="input-group-text" >PDF UPLOAD</span>
+                        <input type="file" name="FileName" accept=".pdf">
+                    </div>
+                </div>
+                <div class="input-group input-group-sm mb-3 " style="width: 10px;height:300px;">
+                    <div>
+                        <span class="input-group-text" >IMG UPLOAD</span>
+                        <input type="file" id="pf_imgInput" name="chooseFile" accept="image/*" >
+                        <img id="pf_image_section" src="#" alt=""/>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+</main>
+<script>
+
+    // 이벤트를 바인딩해서 input에 파일이 올라올때 (input에 change를 트리거할때) 위의 함수를 this context로 실행합니다.
+    $("#pf_imgInput").change(function(){
+        readURL_portfolioedit(this);
+    });
+
+
+
+</script>
+
+<script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+</html>
