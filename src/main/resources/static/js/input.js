@@ -9,7 +9,7 @@ function input_memberdb (){
     let nickname  = $('#nickname').val()
     let pw= $('#password').val()
     let pwchk= $('#passwordcheck').val()
-
+    let img =''
     let comment= $('#comment').val()
     let link= $('#link').val()
 
@@ -32,4 +32,8 @@ function input_memberdb (){
         alert("비밀번호가 일치하지않습니다. 다시한번 확인해주세요.")
     }
 }
+
+
+
+
 

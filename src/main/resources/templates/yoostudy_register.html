@@ -15,6 +15,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../static/js/input.js"></script>
     <script src="../static/js/check.js"></script>
+    <script src="../static/js/register.js"></script>
+
 
     <style>
         /*body {*/
@@ -43,7 +45,33 @@
             -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
             box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15)
         }
+        li {
+
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        .real-upload {
+            display: none;
+        }
+
+        .upload {
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+        }
+
+        .image-preview {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            gap: 20px;
+        }
     </style>
+
 </head>
 
 <body>
@@ -84,6 +112,14 @@
                     <label for="passwordcheck">비밀번호 체크</label>
                     <input type="password" class="form-control" id="passwordcheck" required>
 
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="nickname" >프로필 사진</label>
+                        <input type="file" id="imgInput" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                        <img id="image_section" src="#" alt=""/>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -129,7 +165,28 @@
             }, false);
         });
     }, false);
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#image_section').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    // 이벤트를 바인딩해서 input에 파일이 올라올때 (input에 change를 트리거할때) 위의 함수를 this context로 실행합니다.
+    $("#imgInput").change(function(){
+        readURL(this);
+    });
+
 </script>
+
+
+
 </body>
 
 </html>
