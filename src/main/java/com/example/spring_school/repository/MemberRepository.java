@@ -6,14 +6,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface MemberRepository extends JpaRepository<Member, String> {
+public interface MemberRepository extends JpaRepository<Member, Long> {
 
     //Member findById(String memberId);
 
 //    List<Member> findByMemberId(String memberId);
-    Optional<Member> findById(String id);
+    Member findByMemberId(String id);
 
     List<Member> findByLanguageContaining(String language);
+
     List<Member> findByLanguage(String Language);
 
 }

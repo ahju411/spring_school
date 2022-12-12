@@ -21,21 +21,32 @@ public class MemberDto {
 
     private String image;
 
+    private String imageName;
+
+    private String oriImageName;
+
     private String career;
 
-    private String itd;
+    private String comment;
 
     private String link;
+
+    private String language;
+
+    private String award;
 
     public static Member CreateMember(MemberDto memberDto, PasswordEncoder passwordEncoder){
         Member member = new Member();
         member.setMemberId(memberDto.MemberId);
         String password = passwordEncoder.encode(memberDto.getPassword());
         member.setPassword(password);
+        member.setName(memberDto.getName());
         member.setImage(memberDto.getImage());
+        member.setLink(memberDto.getLink());
         member.setCareer(memberDto.getCareer());
-        member.setItd(memberDto.getItd());
-        member.setItd(memberDto.getItd());
+        member.setComment(memberDto.getComment());
+        member.setLanguage(memberDto.getLanguage());
+        member.setAward(memberDto.getAward());
 
         return member;
     }

@@ -1,6 +1,5 @@
 package com.example.spring_school.service;
 
-import com.example.spring_school.dto.MemberDto;
 import com.example.spring_school.entity.Member;
 import com.example.spring_school.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,35 +25,25 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-/*    public void ValidateDuplicateMember(Member member){
-        Member findMember = memberRepository.findById(member.getId());
+    public void ValidateDuplicateMember(Member member){
+        Optional<Member> findMember = memberRepository.findById(member.getId());
         if(findMember != null){
             throw new IllegalStateException("아이디가 이미 존재합니다.");
         }
-    }*/
+    }
 
     //맴버 정보 수정
     @Transactional
     public Member getMemberById(String memberId) throws Exception{
-        Member member = memberRepository.findById(memberId).orElseThrow(EntityNotFoundException::new);
+        Member member = memberRepository.findByMemberId(memberId);
 
         return member;
     }
 
-/*    public String updateMember(MemberDto memberDto){
-        Member member = memberRepository.findById(memberDto.getMemberId()).orElseThrow(EntityNotFoundException::new);
-        member.updateMember(memberDto);
-
-        return member.getId();
-    }*/
-
-/*    //language로 받아오기
-    public Member findByContainLanguage(String language){
-
-        memberRepository.findByLanguage("%"+language+"%");
+    public Member updateMember(Member member){
 
 
-        return new Member();
-    }*/
+        return null;
+    }
 
 }

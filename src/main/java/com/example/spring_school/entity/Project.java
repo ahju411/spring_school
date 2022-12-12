@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -22,7 +23,7 @@ public class Project {
     @JoinColumn(name = "id")
     private String id;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String pjName;
 
     private String pjShortInfo;
@@ -33,15 +34,31 @@ public class Project {
 
     private String language;
 
+    private String image;
+
+    private String imageName;
+
+    private String oriImageName;
+
+    private LocalDateTime regDate;
+
     public static Project createProject(ProjectDto projectDto){
         Project project = new Project();
         project.setPjName(projectDto.getPjName());
         project.setPjShortInfo(projectDto.getPjShortInfo());
         project.setPjLongInfo(projectDto.getPjLongInfo());
         project.setPjLink(projectDto.getPjLink());
-//        project.setLanguage(projectDto.ge);
+        project.setLanguage(projectDto.getLanguage());
 
         return project;
+    }
+
+    public void updateProject(ProjectDto projectDto){
+        this.pjName = projectDto.getPjName();
+        this.pjShortInfo = projectDto.getPjShortInfo();
+        this.pjLongInfo = projectDto.getPjLongInfo();
+        this.pjLink = projectDto.getPjLink();
+        this.language = projectDto.getLanguage();
     }
 
 }
