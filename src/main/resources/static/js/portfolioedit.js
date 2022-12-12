@@ -1,5 +1,6 @@
+const session = localStorage.getItem("Session");
 
-
+console.log("ㅏ이이너ㅁㅏㄴㅁ션세",session);
 $(function (){
 
 
@@ -7,22 +8,49 @@ $(function (){
 
 
 
-function readURL_portfolioedit(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
 
-        reader.onload = function (e) {
-            $('#pf_image_section').attr('src', e.target.result);
+function add_portfolio(){
+
+
+
+    let getPJname = $("#pj_name").val();
+    let getPJShortinfo = $("#pj_shortinfo").val();
+    let getPJlanguage = $("#pj_language").val();
+    let getPJLonginfo = $("#pj_longinfo").val();
+    let getPJLink = $("#pj_link").val();
+
+    console.log(getPJname)
+
+    let form = $('#fileport')[0];
+    var formData2 = new FormData(form);
+    formData2.append('id',sessionget);
+    formData2.append('pjName',getPJname);
+    formData2.append('pjLink',getPJLink);
+    formData2.append('pjLongInfo',getPJLonginfo);
+    formData2.append('pjShortInfo',getPJShortinfo);
+    formData2.append('language',getPJlanguage);
+
+    $.ajax({
+        type:'post',
+        url:'http://39.122.95.89:25917/saveProject',
+        processData: false,
+        contentType: false,
+        // data:{"memberId":sessionget,"id":idcode,"name":getname,"comment":getcomment,"link":getlink
+        //     ,"career":edited_careers_list,"language":edited_languages_list
+        //     ,"award":edited_awards_list,"certificate":edited_certs_list},
+        data:formData2,
+        crossDomain: true,
+        dataType: 'json',
+        success:function (data){
+
+
+        },
+        error:function (data){
+
         }
+    })
 
-        reader.readAsDataURL(input.files[0]);
-    }
+
+
 }
-
-// 이벤트를 바인딩해서 input에 파일이 올라올때 (input에 change를 트리거할때) 위의 함수를 this context로 실행합니다.
-$("#pf_imgInput").change(function(){
-    readURL_portfolioedit(this);
-});
-
-
 

@@ -1,6 +1,7 @@
 $(function (){
-    let sessionget = sessionStorage.getItem("sessionId")
-    console.log("세션:"+sessionget)
+    const session = localStorage.getItem("Session");
+
+    console.log("ㅏ이이너ㅁㅏㄴㅁ션세",session);
    test();
 
 })

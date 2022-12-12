@@ -6,12 +6,9 @@ let certificate_count =1;
 let award_count = 1;
 let career_list = []
 let idcode
+const session = localStorage.getItem("Session");
 
-// 세션 임시
-sessionStorage.setItem("sessionId","test2")
-let sessionget = sessionStorage.getItem("sessionId")
-alert("세션:"+sessionget)
-
+console.log("ㅏ이이너ㅁㅏㄴㅁ션세",session);
 $(function (){
 
     get_profileedit()
@@ -23,10 +20,12 @@ $(function (){
 
 
 function get_profileedit(){
+
+
     $.ajax({
         type:'post',
         url:'http://39.122.95.89:25917/getMymember',
-        data:{"memberId":sessionget},
+        data:{"id":session},
         crossDomain: true,
         dataType: 'json',
         success:function (data){
@@ -42,7 +41,7 @@ function get_profileedit(){
 
         },
         error:function (data){
-            alert("접속오류 데스요")
+
         }
     })
 }
@@ -97,9 +96,39 @@ function add_award(){
 
 }
 
+function next(){
+    location.href ='http://localhost:63342/spring_school/templates/yoostudy_portfolioedit.html?_ijt=fl0aktckf2m7amh2705tmu53o9&_ij_reload=RELOAD_ON_SAVE'
+}
+
+
+function readURL_profile(input) {
+    console.log("asd")
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#load_image').attr('src', e.target.result);
+            img=e.target.result
+
+            img = e.target.result;
+
+            console.log("보낸 이미지값",img)
+
+
+
+        }
+
+        reader.readAsDataURL(input.files[0]);
+        let test =document.getElementById('imgInput').files;
+        console.log("이미지 파일이름:",imagename)
+
+    }
+}
 
 
 function mpeEdit(){
+
+
 
     let edited_careers = $("#mpe_career input[type=text]");
     let edited_languages = $("#mpe_language input[type=text]");
@@ -130,27 +159,39 @@ function mpeEdit(){
     });
     console.log(edited_careers_list,edited_languages_list,edited_certs_list,edited_awards_list)
 
-
-
         let getname= $('#profileedit_username').val()
         let getcomment  = $('#profileedit_usercomment').val()
         let getlink= $('#profileedit_userlink').val()
 
 
-            $.ajax({
+        let form = $('#fileProfile')[0];
+        var formData2 = new FormData(form);
+        formData2.append('id',idcode);
+        formData2.append('name',getname);
+        formData2.append('link',getlink);
+        formData2.append('career',edited_careers_list);
+        formData2.append('comment',getcomment);
+        formData2.append('language',edited_languages_list);
+        formData2.append('certificate',edited_certs_list);
+        formData2.append('award',edited_awards_list);
+
+    $.ajax({
                 type:'post',
-                url:'http://39.122.95.89:25917/memberUpdate',
-                data:{"memberId":sessionget,"id":idcode,"name":getname,"comment":getcomment,"link":getlink
-                    ,"career":edited_careers_list,"language":edited_languages_list
-                    ,"award":edited_awards_list},
+                url:'http://39.122.95.89:25917/updateMember',
+                processData: false,
+                contentType: false,
+                // data:{"memberId":sessionget,"id":idcode,"name":getname,"comment":getcomment,"link":getlink
+                //     ,"career":edited_careers_list,"language":edited_languages_list
+                //     ,"award":edited_awards_list,"certificate":edited_certs_list},
+                data:formData2,
                 crossDomain: true,
                 dataType: 'json',
                 success:function (data){
-                    alert("보내기 성공입니다")
+
 
                 },
                 error:function (data){
-                    alert("보내기오류 데스요")
+
                 }
             })
 

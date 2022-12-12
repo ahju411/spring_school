@@ -25,16 +25,26 @@ window.addEventListener('load', () => {
 function input_memberdb (){
 
     let id= $('#id').val()
-    let nickname  = $('#nickname').val()
+    let nickname  = $('#name').val()
     let pw= $('#password').val()
     let pwchk= $('#passwordcheck').val()
 
     let comment= $('#comment').val()
     let link= $('#link').val()
 
+    let form = $('#fileRegister')[0];
+    var formData = new FormData(form);
+    formData.append('id',id);
+    formData.append('name',nickname);
+    formData.append('password',pw);
+    formData.append('comment',comment);
+    formData.append('link',link);
 
-
-
+    console.log($('#image').file);
+    console.log('이이하');
+    console.log(formData);
+    console.log(formData.get('imgs'));
+    console.log(formData.get('id'));
 
 
 
@@ -42,15 +52,21 @@ function input_memberdb (){
         $.ajax({
             type:'post',
             url:'http://39.122.95.89:25917/SignUp',
-            data:{"id":id,"password":pw,"name":nickname,"image":img,"comment":comment,"link":link,"imageName":imagename},
+            processData: false,
+            contentType: false,
+            //data:{"id":id,"password":pw,"name":nickname,"image":img,"comment":comment,"link":link,"imageName":imagename},
+            data:formData,
             crossDomain: true,
             dataType: 'json',
             success:function (data){
-                alert("보내기 성공입니다")
+                var link ='http://localhost:63342/spring_school/templates/yoostudy_home.html?_ijt=8obg05gacnnlkb8mhbno3mbb4n&_ij_reload=RELOAD_ON_SAVE'
+                 location.href=link;
+
+
 
             },
             error:function (data){
-                alert("보내기오류 데스요")
+
             }
         })
     }

@@ -193,8 +193,9 @@
     <hr style="border: double 10px gray;">
     <div class="row">
 <!--        -->
+
         <div class="text-center " >
-            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
             <div class="input-group input-group-sm mb-3 " style="width: 300px;margin: auto;margin-top: 30px">
                 <span class="input-group-text" >NICKNAME</span>
                 <input id="profileedit_username" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
@@ -266,22 +267,26 @@
     <hr style="border: double 10px gray;">
     <div>
         <h3 style="padding-left: 30px;padding-bottom: 10px;color: black;float: left">MY PORTFOLIO</h3>
-        <button type="button" class="btn btn-outline-secondary" style="background-color: whitesmoke;margin-left: 30px">Add</button>
+        <button type="button" class="btn btn-outline-secondary" style="background-color: whitesmoke;margin-left: 30px"
+        onclick="next()">Add</button>
     </div>
 
 
-        <div class="container">
+        <div id="projects" class="container">
 
-            <div><img class="col" src="../img/test.jpg" style="width: 70%;height: 100%"></div>
+            <iframe id="iframetest" src="yoostudy_portfolio.html" title="내용" style="width: 200vh;height: 85vh;"></iframe>
+
 
 
 
 
         </div>
 
-        <button id="mpe_change" type="button" class="btn btn-outline-secondary" style="background-color: whitesmoke;margin-left: 30px"
+
+        <button id="mpe_change" type="submit" class="btn btn-outline-secondary" style="background-color: whitesmoke;margin-left: 30px"
         onclick="mpeEdit()"
         >수정하기</button>
+
 
 
 
@@ -293,6 +298,11 @@
 
 </main>
 <script>
+
+    $("#pf_image").change(function(){
+        readURL_profile(this);
+    });
+
 
 
 

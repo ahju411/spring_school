@@ -5,6 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <script>
+    function logout(){
+      localStorage.clear()
+    }
+
+  </script>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg" style="background-color: whitesmoke;">
@@ -44,6 +50,9 @@
           <li class="nav-item">
               <a class="nav-link"style="color: black"  href="yoostudy_login.html">LOGIN</a>
             </li>
+          <li class="nav-item">
+            <a class="nav-link"style="color: black"  href="yoostudy_login.html" onclick="logout()">LOGOUT</a>
+          </li>
           
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

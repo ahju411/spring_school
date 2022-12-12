@@ -32,11 +32,11 @@ function input_project (){
         crossDomain: true,
         dataType: 'json',
         success:function (data){
-            alert("보내기 성공입니다")
+
 
         },
         error:function (data){
-            alert("보내기오류 데스요")
+
         }
     })
 

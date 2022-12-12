@@ -1,6 +1,8 @@
 let imgfolder =''
 
+const session = localStorage.getItem("Session");
 
+console.log("ㅏ이이너ㅁㅏㄴㅁ션세",session);
 
 $(function (){
     test()

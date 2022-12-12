@@ -194,46 +194,37 @@
 <!--        -->
         <div style="margin-left: 100px" >
             <div style="">
+                <form class="validation-form" name="form" method="post" id = "fileport">
                 <div class="input-group input-group-sm mb-3 " style="width: 500px;margin-top: 30px">
                     <span class="input-group-text" >프로젝트 이름</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
+                    <input id="pj_name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
                 </div>
                 <div class="input-group input-group-sm mb-3 " style="width: 500px;margin-top: 30px">
                     <span class="input-group-text" >간단 설명</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
+                    <input id="pj_shortinfo" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
                 </div>
                 <div class="input-group input-group-sm mb-3 " style="width: 300px;margin-top: 30px">
                     <span class="input-group-text" >LANGUAGE</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
+                    <input id="pj_language" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
+                </div>
+
+
+                <div class="input-group input-group-sm mb-3 " style="width: 1000px;height:300px;margin-top: 30px">
+                    <span class="input-group-text" >자세한 설명</span>
+                    <textarea id="pj_longinfo" type="text"  cols="40" rows="5" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" ></textarea>
                 </div>
 
                 <div class="input-group input-group-sm mb-3 " style="width: 300px;margin-top: 30px">
-                    <span class="input-group-text" >SKILLS</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" >
+                    <span class="input-group-text" >LINK</span>
+                    <textarea id="pj_link" type="text"  cols="40" rows="5" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" ></textarea>
                 </div>
-                <div class="input-group input-group-sm mb-3 " style="width: 1000px;height:300px;margin-top: 30px">
-                    <span class="input-group-text" >자세한 설명</span>
-                    <textarea type="text"  cols="40" rows="5" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" ></textarea>
-                </div>
+                </form>
 
-                <div class="input-group input-group-sm mb-3 " style="width: 10px;margin-top: 30px">
-                    <div>
-                        <span class="input-group-text" >PDF UPLOAD</span>
-                        <input type="file" name="FileName" accept=".pdf">
-                    </div>
-                </div>
-                <div class="input-group input-group-sm mb-3 " style="width: 10px;height:250px;">
-                    <div>
-                        <span class="input-group-text" >IMG UPLOAD</span>
-                        <input type="file" id="pf_imgInput" name="chooseFile" accept="image/*" >
-                        <img id="pf_image_section" src="#" alt=""/>
 
-                    </div>
-                </div>
-
-                <div class="input-group input-group-sm mb-3 " style="width: 200px;">
+                <div class="input-group input-group-sm mb-3 " style="width: 500px;margin-top: 30px">
                     <div>
-                        <button id="mpe_change" type="button" class="btn btn-outline-secondary" style="background-color: whitesmoke"
+                        <button id="pj_change" type="button" class="btn btn-outline-secondary" style="background-color: whitesmoke"
+                                onclick="add_portfolio()"
                         >등록하기</button>
                     </div>
                 </div>
@@ -253,7 +244,7 @@
 <script>
 
     // 이벤트를 바인딩해서 input에 파일이 올라올때 (input에 change를 트리거할때) 위의 함수를 this context로 실행합니다.
-    $("#pf_imgInput").change(function(){
+    $("#pj_img").change(function(){
         readURL_portfolioedit(this);
     });
 
