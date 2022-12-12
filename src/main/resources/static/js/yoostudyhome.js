@@ -1,5 +1,6 @@
 $(function (){
-
+    let sessionget = sessionStorage.getItem("sessionId")
+    console.log("세션:"+sessionget)
    test();
 
 })

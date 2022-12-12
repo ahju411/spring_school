@@ -1,11 +1,19 @@
+let imgfolder =''
+
+
+
 $(function (){
     test()
+    console.log("마지막ㅁ:",imgfolder)
+    test2()
 })
+
+
 
 function test (){
     $.ajax({
-        type:'get',
-        url:'http://39.122.95.89:25917/list',
+        type:'post',
+        url:'http://39.122.95.89:25917/memberList',
         success:function (data){
             let html =''
             let carrer = ''
@@ -13,12 +21,32 @@ function test (){
                 html += list.name
                 carrer += '<p style="text-align: center">22.09~: '+list.career+'</p>'
             })
+            test2(data[0].image)
+
             $('#testget').html(html).trigger('create')
             $('#testcarrer').html(carrer).trigger('create')
 
         },
         error:function (data){
             alert("접속오류 데스요")
+        }
+    })
+}
+
+function test2 (x){
+    console.log("마지막ㅁaa:",x)
+    $.ajax({
+        type:'post',
+        url:'http://39.122.95.89:25917/getImage',
+        data:{"path":x},
+        crossDomain: true,
+        dataType: 'json',
+        success:function (data){
+            console.log("test2 성공적")
+
+        },
+        error:function (data){
+            alert("test2 실패")
         }
     })
 }

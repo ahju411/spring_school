@@ -5,24 +5,49 @@ let language_count =1;
 let certificate_count =1;
 let award_count = 1;
 let career_list = []
+let idcode
 
-
-
+// 세션 임시
+sessionStorage.setItem("sessionId","test2")
+let sessionget = sessionStorage.getItem("sessionId")
+alert("세션:"+sessionget)
 
 $(function (){
 
-    get_member_profile()
-    get_member_profolio()
+    get_profileedit()
+
 
 })
 
-function get_member_profile(){
 
+
+
+function get_profileedit(){
+    $.ajax({
+        type:'post',
+        url:'http://39.122.95.89:25917/getMymember',
+        data:{"memberId":sessionget},
+        crossDomain: true,
+        dataType: 'json',
+        success:function (data){
+
+                let name =data.name
+                let comment = data.comment
+                let link = data.link
+                idcode = data.id
+
+                $('#profileedit_username').attr("value",name)
+                $('#profileedit_usercomment').attr("value",comment)
+                $('#profileedit_userlink').attr("value",link)
+
+        },
+        error:function (data){
+            alert("접속오류 데스요")
+        }
+    })
 }
 
-function  get_member_profolio(){
 
-}
 
 function add_career(){
 
@@ -73,13 +98,6 @@ function add_award(){
 }
 
 
-function update_my(){
-
-}
-
-function add_list_career(x){
-    career_list.push(x)
-}
 
 function mpeEdit(){
 
@@ -88,34 +106,53 @@ function mpeEdit(){
     let edited_certs = $("#mpe_cert input[type=text]");
     let edited_awards = $("#mpe_award input[type=text]");
 
-    let edited_careers_list = []
-    let edited_languages_list = []
-    let edited_certs_list = []
-    let edited_awards_list = []
+    let edited_careers_list = ''
+    let edited_languages_list = ''
+    let edited_certs_list = ''
+    let edited_awards_list = ''
 
 
     $.each(edited_careers, function (index, value) {
-        edited_careers_list.push($(value).val())
-        // console.log('인덱스값' + index);
-        // console.log(value);
-        // console.log('id =' + $(value).attr("id"));
-        // console.log('name =' + $(value).attr("name"));
-        // console.log('value =' + $(value).val());
-    });
-    $.each(edited_languages, function (index, value) {
-        edited_languages_list.push($(value).val())
+
+        edited_careers_list += $(value).val()+":"
 
     });
+    $.each(edited_languages, function (index, value) {
+        edited_languages_list += $(value).val()+":"
+    });
     $.each(edited_certs, function (index, value) {
-        edited_certs_list.push($(value).val())
+        edited_certs_list += $(value).val()+":"
 
     });
     $.each(edited_awards, function (index, value) {
-        edited_awards_list.push($(value).val())
+        edited_awards_list += $(value).val()+":"
 
     });
     console.log(edited_careers_list,edited_languages_list,edited_certs_list,edited_awards_list)
 
+
+
+        let getname= $('#profileedit_username').val()
+        let getcomment  = $('#profileedit_usercomment').val()
+        let getlink= $('#profileedit_userlink').val()
+
+
+            $.ajax({
+                type:'post',
+                url:'http://39.122.95.89:25917/memberUpdate',
+                data:{"memberId":sessionget,"id":idcode,"name":getname,"comment":getcomment,"link":getlink
+                    ,"career":edited_careers_list,"language":edited_languages_list
+                    ,"award":edited_awards_list},
+                crossDomain: true,
+                dataType: 'json',
+                success:function (data){
+                    alert("보내기 성공입니다")
+
+                },
+                error:function (data){
+                    alert("보내기오류 데스요")
+                }
+            })
 
 
 

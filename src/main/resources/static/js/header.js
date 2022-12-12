@@ -1,0 +1,8 @@
+
+$(function (){
+  checkSession()
+})
+
+function checkSession(){
+
+}
